@@ -1,3 +1,5 @@
+library(readxl)
+library(xlsx)
 #initial commit
 
 titanic_dataset <- read_excel("~/Downloads/titanic3.xls", na = "")
@@ -19,3 +21,4 @@ titanic_df["has_cabin_number"] <- NA
 titanic_df$has_cabin_number[which(is.na(titanic_df$cabin) == TRUE)] <- "0"
 titanic_df$has_cabin_number[which(is.na(titanic_df$cabin) == FALSE)] <- "1"
 
+write.xlsx(titanic_df, file = "titanic_clean.xlsx", sheetName = "Titanic Clean Dataset", append = FALSE )
